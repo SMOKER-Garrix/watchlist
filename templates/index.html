@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ name|lower }}`s watchliats</title>
+</head>
+<body>
+    {%if name == 'MARTIN GARRIX' %}
+    <h2>{{ name|lower }}`s watchlists</h2>
+    <p>{{movies|length}} Titles</p>
+    <ul>
+        {% for movie in movies %}
+        <li>{{movie.title}}-{{movie.year}}</li>
+        {%endfor%}
+    </ul>
+    {%else%}
+    <p>You are not the owner of these fucking list</p>
+    {%endif%}
+    
+    <footer>
+        <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
+    </footer>
+</body>
+
+</html>
