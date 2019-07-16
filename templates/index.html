@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ name|lower }}`s watchliats</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
 </head>
 <body>
     {%if name == 'MARTIN GARRIX' %}
-    <h2>{{ name|lower }}`s watchlists</h2>
+    <h2>
+        <img src="{{url_for('static',filename='image/avatar.png')}}" alt="avatar" class="avatar">
+        {{ name|lower }}`s watchlists
+    </h2>
     <p>{{movies|length}} Titles</p>
-    <ul>
+    <ul class="movie_list">
         {% for movie in movies %}
         <li>{{movie.title}}-{{movie.year}}</li>
         {%endfor%}
@@ -19,7 +23,7 @@
     {%else%}
     <p>You are not the owner of these fucking list</p>
     {%endif%}
-    
+    <img src="{{url_for('static',filename='image/totoro.gif')}}" alt="totoro" class="totoro">
     <footer>
         <small>&copy; 2018 <a href="http://helloflask.com/tutorial">HelloFlask</a></small>
     </footer>
